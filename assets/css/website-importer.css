@@ -1,0 +1,44 @@
+.website-importer-form {
+    margin: 20px 0;
+    max-width: 800px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.import-status {
+    margin: 15px 0;
+}
+
+#import_result {
+    margin-top: 30px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    background: #f9f9f9;
+}
+
+#content_preview {
+    max-height: 500px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #eee;
+}
+
+.hidden {
+    display: none;
+}
+
+.selector-examples {
+    font-style: italic;
+    color: #666;
+    margin-top: 5px;
+}
