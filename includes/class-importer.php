@@ -104,22 +104,18 @@ class WCIP_Importer {
         if ($node->nodeType === XML_ELEMENT_NODE) {
             switch ($node->nodeName) {
                 case 'h1':
-                    return '<!-- wp:heading {"level":1} --><h1>' . $this->get_inner_html($node) . '</h1><!-- /wp:heading -->';
+                    // Convert h1 to h2
+                    return '<!-- wp:heading {"level":2} --><h2>' . $this->get_inner_html($node) . '</h2><!-- /wp:heading -->';
                 
                 case 'h2':
                     return '<!-- wp:heading {"level":2} --><h2>' . $this->get_inner_html($node) . '</h2><!-- /wp:heading -->';
                 
                 case 'h3':
-                    return '<!-- wp:heading {"level":3} --><h3>' . $this->get_inner_html($node) . '</h3><!-- /wp:heading -->';
-                
                 case 'h4':
-                    return '<!-- wp:heading {"level":4} --><h4>' . $this->get_inner_html($node) . '</h4><!-- /wp:heading -->';
-                
                 case 'h5':
-                    return '<!-- wp:heading {"level":5} --><h5>' . $this->get_inner_html($node) . '</h5><!-- /wp:heading -->';
-                
                 case 'h6':
-                    return '<!-- wp:heading {"level":6} --><h6>' . $this->get_inner_html($node) . '</h6><!-- /wp:heading -->';
+                    // Convert h3, h4, h5, h6 to h3
+                    return '<!-- wp:heading {"level":3} --><h3>' . $this->get_inner_html($node) . '</h3><!-- /wp:heading -->';
                 
                 case 'p':
                     return '<!-- wp:paragraph --><p>' . $this->get_inner_html($node) . '</p><!-- /wp:paragraph -->';

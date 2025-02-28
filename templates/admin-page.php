@@ -7,7 +7,6 @@ if (!defined('ABSPATH')) {
 }
 ?>
 <div class="wrap">
-    <h1>Website Content Importer Pro</h1>
     <!-- The rest of the admin form HTML --><?php
 // Exit if accessed directly
 if (!defined('ABSPATH')) {
