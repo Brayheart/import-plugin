@@ -1,8 +1,20 @@
 jQuery(document).ready(function($) {
+    // Toggle display of blog-specific options based on post type selection
+    $('#post_type').on('change', function() {
+        if ($(this).val() === 'post') {
+            $('.blog-options').show();
+            $('#create_content_button').text('Create Blog Post');
+        } else {
+            $('.blog-options').hide();
+            $('#create_content_button').text('Create Page');
+        }
+    }).trigger('change'); // Trigger change on page load
+    
     $('#import_ajax_button').on('click', function() {
         var url = $('#website_url').val();
         var selector = $('#content_selector').val();
         var title = $('#page_title').val();
+        var postType = $('#post_type').val();
         
         if (!url) {
             alert('Please enter a valid URL');
@@ -10,7 +22,7 @@ jQuery(document).ready(function($) {
         }
         
         if (!title) {
-            alert('Please enter a page title');
+            alert('Please enter a title');
             return;
         }
         
@@ -33,6 +45,19 @@ jQuery(document).ready(function($) {
                     $('#import_result').removeClass('hidden');
                     $('#preview_title').val(title);
                     $('#preview_content').val(response.data.content);
+                    $('#preview_post_type').val(postType);
+                    
+                    // If post type is 'post', also collect and store category and tags
+                    if (postType === 'post') {
+                        var category = $('#post_category').val();
+                        var tags = $('#post_tags').val();
+                        
+                        $('#preview_category').val(category);
+                        $('#preview_tags').val(tags);
+                        $('#create_content_button').text('Create Blog Post');
+                    } else {
+                        $('#create_content_button').text('Create Page');
+                    }
                 } else {
                     alert('Error: ' + response.data);
                 }

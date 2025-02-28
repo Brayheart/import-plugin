@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
 ?>
 <div class="wrap">
     <h1>Website Content Importer Pro</h1>
-    <p>Use this tool to import content from external websites and create new WordPress pages with preserved content order.</p>
+    <p>Use this tool to import content from external websites and create new WordPress pages or blog posts with preserved content order.</p>
     
     <form method="post" action="<?php echo admin_url('admin-post.php'); ?>" class="website-importer-form">
         <?php wp_nonce_field('website_importer_nonce'); ?>
@@ -27,8 +27,25 @@ if (!defined('ABSPATH')) {
         </div>
         
         <div class="form-group">
-            <label for="page_title">New Page Title:</label>
-            <input type="text" id="page_title" name="page_title" class="regular-text" placeholder="My Imported Page" required>
+            <label for="post_type">Create as:</label>
+            <select id="post_type" name="post_type">
+                <option value="page">Page</option>
+                <option value="post">Blog Post</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="page_title">New Title:</label>
+            <input type="text" id="page_title" name="page_title" class="regular-text" placeholder="My Imported Content" required>
+        </div>
+        
+        <div class="form-group blog-options" style="display:none;">
+            <label for="post_category">Category:</label>
+            <?php wp_dropdown_categories(array('hide_empty' => 0, 'name' => 'post_category', 'hierarchical' => true)); ?>
+            
+            <label for="post_tags" style="display:block; margin-top:10px;">Tags:</label>
+            <input type="text" id="post_tags" name="post_tags" class="regular-text" placeholder="tag1, tag2, tag3">
+            <p class="description">Enter tags separated by commas</p>
         </div>
         
         <div class="form-group">
@@ -54,7 +71,10 @@ if (!defined('ABSPATH')) {
             <input type="hidden" name="action" value="create_imported_page">
             <input type="hidden" id="preview_title" name="title" value="">
             <input type="hidden" id="preview_content" name="content" value="">
-            <button type="submit" class="button button-primary">Create Page with This Content</button>
+            <input type="hidden" id="preview_post_type" name="post_type" value="page">
+            <input type="hidden" id="preview_category" name="post_category" value="">
+            <input type="hidden" id="preview_tags" name="post_tags" value="">
+            <button type="submit" class="button button-primary" id="create_content_button">Create Content</button>
         </form>
     </div>
 </div>
