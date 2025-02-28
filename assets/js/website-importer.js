@@ -10,6 +10,29 @@ jQuery(document).ready(function($) {
         }
     }).trigger('change'); // Trigger change on page load
     
+    // Toggle batch blog options
+    $('#batch_post_type').on('change', function() {
+        if ($(this).val() === 'post') {
+            $('.batch-blog-options').show();
+        } else {
+            $('.batch-blog-options').hide();
+        }
+    }).trigger('change'); // Trigger change on page load
+    
+    // Tab navigation
+    $('.nav-tab').on('click', function(e) {
+        e.preventDefault();
+        
+        // Update active tab
+        $('.nav-tab').removeClass('nav-tab-active');
+        $(this).addClass('nav-tab-active');
+        
+        // Show corresponding content
+        var target = $(this).attr('href');
+        $('.tab-content').hide();
+        $(target).show();
+    });
+    
     $('#import_ajax_button').on('click', function() {
         var url = $('#website_url').val();
         var selector = $('#content_selector').val();
@@ -67,28 +90,5 @@ jQuery(document).ready(function($) {
                 alert('An error occurred. Please try again.');
             }
         });
-    });
-
-        // Tab navigation
-    $('.nav-tab').on('click', function(e) {
-        e.preventDefault();
-        
-        // Update active tab
-        $('.nav-tab').removeClass('nav-tab-active');
-        $(this).addClass('nav-tab-active');
-        
-        // Show corresponding content
-        var target = $(this).attr('href');
-        $('.tab-content').hide();
-        $(target).show();
-    });
-    
-    // Toggle batch blog options
-    $('#batch_post_type').on('change', function() {
-        if ($(this).val() === 'post') {
-            $('.batch-blog-options').show();
-        } else {
-            $('.batch-blog-options').hide();
-        }
     });
 });
