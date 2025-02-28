@@ -68,4 +68,27 @@ jQuery(document).ready(function($) {
             }
         });
     });
+
+        // Tab navigation
+    $('.nav-tab').on('click', function(e) {
+        e.preventDefault();
+        
+        // Update active tab
+        $('.nav-tab').removeClass('nav-tab-active');
+        $(this).addClass('nav-tab-active');
+        
+        // Show corresponding content
+        var target = $(this).attr('href');
+        $('.tab-content').hide();
+        $(target).show();
+    });
+    
+    // Toggle batch blog options
+    $('#batch_post_type').on('change', function() {
+        if ($(this).val() === 'post') {
+            $('.batch-blog-options').show();
+        } else {
+            $('.batch-blog-options').hide();
+        }
+    });
 });

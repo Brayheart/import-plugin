@@ -42,3 +42,28 @@
     color: #666;
     margin-top: 5px;
 }
+
+.wcip-batch-results, .wcip-batch-results-errors {
+    background: #fff;
+    border: 1px solid #ccd0d4;
+    padding: 10px 20px;
+    margin: 20px 0;
+}
+
+.wcip-batch-results li, .wcip-batch-results-errors li {
+    margin: 10px 0;
+    padding: 5px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.wcip-batch-results-errors li {
+    color: #d63638;
+}
+
+.wcip-batch-results .dashicons-yes {
+    color: #46b450;
+}
+
+.wcip-batch-results-errors .dashicons-no {
+    color: #d63638;
+}
