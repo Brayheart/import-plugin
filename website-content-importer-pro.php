@@ -25,25 +25,6 @@ require_once WCIP_PLUGIN_DIR . 'includes/class-importer.php';
 require_once WCIP_PLUGIN_DIR . 'includes/class-page-creator.php';
 require_once WCIP_PLUGIN_DIR . 'includes/class-shortcodes.php';
 
-// Register activation/deactivation hooks
-register_activation_hook(__FILE__, 'wcip_activate');
-register_deactivation_hook(__FILE__, 'wcip_deactivate');
-
-function wcip_activate() {
-    // Create necessary directories and files
-}
-
-function wcip_deactivate() {
-    // Cleanup if needed
-}
-
-// Add fallback for domain_mapping_siteurl function
-if (!function_exists('domain_mapping_siteurl')) {
-    function domain_mapping_siteurl($blog_id = null) {
-        return site_url();
-    }
-}
-
 // Initialize the plugin components
 function wcip_init() {
     $admin = new WCIP_Admin();
