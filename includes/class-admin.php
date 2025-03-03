@@ -6,6 +6,8 @@ class WCIP_Admin {
     
     private $importer;
     private $page_creator;
+
+    
     
     public function __construct() {
         $this->importer = new WCIP_Importer();
@@ -176,8 +178,8 @@ class WCIP_Admin {
             'manage_options',
             'website-content-importer-pro',
             array($this, 'admin_page'),
-            'dashicons-admin-site',
-            20
+            'dashicons-migrate',
+            100
         );
     }
     

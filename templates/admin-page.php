@@ -6,13 +6,6 @@ if (!defined('ABSPATH')) {
     exit;
 }
 ?>
-<div class="wrap">
-    <!-- The rest of the admin form HTML --><?php
-// Exit if accessed directly
-if (!defined('ABSPATH')) {
-    exit;
-}
-?>
  <div class="wrap">
         <h1>Website Content Importer Pro</h1>
         <p>Use this tool to import content from external websites and create new WordPress pages or blog posts with preserved content order.</p>
